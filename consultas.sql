@@ -43,3 +43,19 @@ Esto significa que las filas se ordenarán de forma aleatoria cada vez que se ej
 select *
 from empleados 
 where salario is null
+
+select * from empleados
+-- Transformar Nulos en Valores Reales
+
+select case
+when comision is not null then comision
+else 0
+end
+from empleados
+
+-- busqueda de patrones
+
+select nombre, puesto
+from empleados
+where departamento_id in (104,102,103)
+and (nombre like '%z%' or puesto like '%An%')
